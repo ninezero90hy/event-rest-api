@@ -43,6 +43,7 @@ public class EventController {
         this.eventValidator = eventValidator;
     }
 
+    // test
     @PostMapping
     public ResponseEntity createEvent(@RequestBody @Validated EventDto eventDto,
                                       Errors errors,
