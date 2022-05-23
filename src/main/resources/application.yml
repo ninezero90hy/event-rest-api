@@ -1,4 +1,7 @@
 spring:
+  config:
+    activate:
+      on-profile: local
   main:
     allow-bean-definition-overriding: 'true'
   jpa:
@@ -18,9 +21,6 @@ spring:
   jackson:
     deserialization:
       fail-on-unknown-properties: 'true'
-jasypt:
-  encryptor:
-    bean: jasyptStringEncryptor
 logging:
   level:
     org:
@@ -32,6 +32,7 @@ logging:
         SQL: DEBUG
       springframework:
         security: DEBUG
+
 my-app:
   client-secret: pass
   user-username: user@email.com
@@ -39,3 +40,56 @@ my-app:
   user-password: user
   admin-username: admin@email.com
   admin-password: admin
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  main:
+    allow-bean-definition-overriding: 'true'
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: 'true'
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: ENC(gi31c27bJrfREkGwoBYYridFJO2wEksQAM22Fx51Yg7NL1lRVggwzyQDReb2G7Dm)
+    password: ENC(3FRIlPA4s4eho98/9DmwZWzaPYEiVz/a)
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ENC(Edx5f31gAEjDDL2/QkZe8g==)
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: 'true'
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+        SQL: DEBUG
+      springframework:
+        security: DEBUG
+
+my-app:
+  client-secret: pass
+  user-username: user-dev@email.com
+  client-id: myApp
+  user-password: user
+  admin-username: admin-dev@email.com
+  admin-password: admin
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
