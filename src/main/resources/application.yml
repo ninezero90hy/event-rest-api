@@ -12,7 +12,7 @@ spring:
             non_contextual_creation: 'true'
         format_sql: 'true'
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   datasource:
     url: ENC(gi31c27bJrfREkGwoBYYridFJO2wEksQAM22Fx51Yg7NL1lRVggwzyQDReb2G7Dm)
     password: ENC(3FRIlPA4s4eho98/9DmwZWzaPYEiVz/a)
@@ -61,7 +61,7 @@ spring:
             non_contextual_creation: 'true'
         format_sql: 'true'
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   datasource:
     url: ENC(gi31c27bJrfREkGwoBYYridFJO2wEksQAM22Fx51Yg7NL1lRVggwzyQDReb2G7Dm)
     password: ENC(3FRIlPA4s4eho98/9DmwZWzaPYEiVz/a)
