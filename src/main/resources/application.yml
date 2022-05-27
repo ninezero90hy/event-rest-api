@@ -21,6 +21,12 @@ spring:
   jackson:
     deserialization:
       fail-on-unknown-properties: 'true'
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      location: /Users/vivid/Documents/upload
+
 logging:
   level:
     org:
@@ -70,6 +76,12 @@ spring:
   jackson:
     deserialization:
       fail-on-unknown-properties: 'true'
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      location: /home/vivid/upload
+
 logging:
   level:
     org:
@@ -84,10 +96,10 @@ logging:
 
 my-app:
   client-secret: pass
-  user-username: user-dev@email.com
+  user-username: user@email.com
   client-id: myApp
   user-password: user
-  admin-username: admin-dev@email.com
+  admin-username: admin@email.com
   admin-password: admin
 
 jasypt:
