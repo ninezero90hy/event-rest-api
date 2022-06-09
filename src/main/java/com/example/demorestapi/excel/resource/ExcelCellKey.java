@@ -19,8 +19,12 @@ public final class ExcelCellKey {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
 		ExcelCellKey that = (ExcelCellKey) o;
 		return Objects.equals(dataFieldName, that.dataFieldName) &&
 				excelRenderLocation == that.excelRenderLocation;

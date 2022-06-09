@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.VerticalAlignment;
 
 /**
  * DefaultExcelAlign
- *
+ * <p>
  * Can be used with {@link com.lannstark.style.CustomExcelCellStyle}
  * see {@link VerticalAlignment} and
  * {@link HorizontalAlignment} for detail explanation

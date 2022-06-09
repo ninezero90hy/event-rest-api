@@ -16,7 +16,7 @@ public class ExcelRenderResource {
 	private List<String> dataFieldNames;
 
 	public ExcelRenderResource(PreCalculatedCellStyleMap styleMap,
-							   Map<String, String> excelHeaderNames, List<String> dataFieldNames) {
+			Map<String, String> excelHeaderNames, List<String> dataFieldNames) {
 		this.styleMap = styleMap;
 		this.excelHeaderNames = excelHeaderNames;
 		this.dataFieldNames = dataFieldNames;

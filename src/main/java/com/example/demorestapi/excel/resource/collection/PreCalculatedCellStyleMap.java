@@ -12,20 +12,18 @@ import java.util.Map;
 
 /**
  * PreCalculatedCellStyleMap
- *
+ * <p>
  * Determines cell's style
  * In currently, PreCalculatedCellStyleMap determines {org.apache.poi.ss.usermodel.DataFormat}
- *
  */
 public class PreCalculatedCellStyleMap {
 
 	private final DataFormatDecider dataFormatDecider;
+	private final Map<ExcelCellKey, CellStyle> cellStyleMap = new HashMap<>();
 
 	public PreCalculatedCellStyleMap(DataFormatDecider dataFormatDecider) {
 		this.dataFormatDecider = dataFormatDecider;
 	}
-
-	private final Map<ExcelCellKey, CellStyle> cellStyleMap = new HashMap<>();
 
 	public void put(Class<?> fieldType, ExcelCellKey excelCellKey, ExcelCellStyle excelCellStyle, Workbook wb) {
 		CellStyle cellStyle = wb.createCellStyle();

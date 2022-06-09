@@ -19,40 +19,40 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest
 public class AccountServiceTest {
 
-    @Autowired
-    AccountService accountService;
+	@Autowired
+	AccountService accountService;
 
-    @Autowired
-    AccountRepository accountRepository;
+	@Autowired
+	AccountRepository accountRepository;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
-    @Test
-    public void findByUsername() {
-        // Given
-        String password = "jiman";
-        String username = "jiman@email.com";
+	@Test
+	public void findByUsername() {
+		// Given
+		String password = "jiman";
+		String username = "jiman@email.com";
 
-        Account account = Account.builder()
-                .email(username)
-                .password(password)
-                .roles(Set.of(AccountRole.ADMIN, AccountRole.USER))
-                .build();
+		Account account = Account.builder()
+				.email(username)
+				.password(password)
+				.roles(Set.of(AccountRole.ADMIN, AccountRole.USER))
+				.build();
 
-        this.accountService.saveAccount(account);
+		this.accountService.saveAccount(account);
 
-        // When
-        UserDetailsService userDetailsService = (UserDetailsService) accountService;
-        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+		// When
+		UserDetailsService userDetailsService = (UserDetailsService) accountService;
+		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-        // Then
-        assertThat(this.passwordEncoder.matches(password, userDetails.getPassword())).isTrue();
-    }
+		// Then
+		assertThat(this.passwordEncoder.matches(password, userDetails.getPassword())).isTrue();
+	}
 
-    @Test
-    public void findByUsernameFail() {
-        assertThrows(UsernameNotFoundException.class, () -> accountService.loadUserByUsername("random@email.com"));
-    }
+	@Test
+	public void findByUsernameFail() {
+		assertThrows(UsernameNotFoundException.class, () -> accountService.loadUserByUsername("random@email.com"));
+	}
 
 }

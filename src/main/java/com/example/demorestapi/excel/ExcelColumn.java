@@ -16,6 +16,7 @@ public @interface ExcelColumn {
 	String headerName() default "";
 
 	ExcelColumnStyle headerStyle() default @ExcelColumnStyle(excelCellStyleClass = NoExcelCellStyle.class);
+
 	ExcelColumnStyle bodyStyle() default @ExcelColumnStyle(excelCellStyleClass = NoExcelCellStyle.class);
 
 }

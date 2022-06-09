@@ -9,16 +9,16 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 public class ErrorsResource extends EntityModel<Errors> {
 
-    private final Errors errors;
+	private final Errors errors;
 
-    public ErrorsResource(Errors errors) {
-        this.errors = errors;
-    }
+	public ErrorsResource(Errors errors) {
+		this.errors = errors;
+	}
 
-    public static EntityModel<Errors> modelOf(Errors errors) {
-        EntityModel<Errors> errorsModel = EntityModel.of(errors);
-        errorsModel.add(linkTo(methodOn(IndexController.class).index()).withRel("index"));
-        return errorsModel;
-    }
+	public static EntityModel<Errors> modelOf(Errors errors) {
+		EntityModel<Errors> errorsModel = EntityModel.of(errors);
+		errorsModel.add(linkTo(methodOn(IndexController.class).index()).withRel("index"));
+		return errorsModel;
+	}
 
 }

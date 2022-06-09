@@ -8,7 +8,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class FileData {
-    private String filename;
-    private String url;
-    private Long size;
+
+	private String filename;
+	private String url;
+	private Long size;
 }

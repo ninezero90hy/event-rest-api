@@ -88,7 +88,7 @@ logging:
       hibernate:
         type:
           descriptor:
-            sql:    
+            sql:
               BasicBinder: TRACE
         SQL: DEBUG
       springframework:

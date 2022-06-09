@@ -8,31 +8,32 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 public class JasyptApplicationTests {
-    @Value("${jasypt.encryptor.password}")
-    private String encryptKey;
 
-    @Test
-    public void contextLoads() {
-    }
+	@Value("${jasypt.encryptor.password}")
+	private String encryptKey;
 
-    @Test
-    public void jasypt() {
+	@Test
+	public void contextLoads() {
+	}
 
-    }
+	@Test
+	public void jasypt() {
 
-    private String jasyptEncrypt(String input) {
-        StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
-        encryptor.setAlgorithm("PBEWithMD5AndDES");
-        encryptor.setPassword(encryptKey);
-        return encryptor.encrypt(input);
-    }
+	}
 
-    private String jasyptDecrypt(String input){
-        String key = "";
-        StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
-        encryptor.setAlgorithm("PBEWithMD5AndDES");
-        encryptor.setPassword(key);
-        return encryptor.decrypt(input);
-    }
+	private String jasyptEncrypt(String input) {
+		StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+		encryptor.setAlgorithm("PBEWithMD5AndDES");
+		encryptor.setPassword(encryptKey);
+		return encryptor.encrypt(input);
+	}
+
+	private String jasyptDecrypt(String input) {
+		String key = "";
+		StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+		encryptor.setAlgorithm("PBEWithMD5AndDES");
+		encryptor.setPassword(key);
+		return encryptor.decrypt(input);
+	}
 
 }

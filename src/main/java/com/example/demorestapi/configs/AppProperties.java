@@ -9,21 +9,22 @@ import javax.validation.constraints.NotEmpty;
 
 @Component
 @ConfigurationProperties(prefix = "my-app")
-@Getter @Setter
+@Getter
+@Setter
 public class AppProperties {
-    
-    @NotEmpty
-    private String adminUsername;
-    @NotEmpty
-    private String adminPassword;
 
-    @NotEmpty
-    private String userUsername;
-    @NotEmpty
-    private String userPassword;
+	@NotEmpty
+	private String adminUsername;
+	@NotEmpty
+	private String adminPassword;
 
-    @NotEmpty
-    private String clientId;
-    @NotEmpty
-    private String clientSecret;
+	@NotEmpty
+	private String userUsername;
+	@NotEmpty
+	private String userPassword;
+
+	@NotEmpty
+	private String clientId;
+	@NotEmpty
+	private String clientSecret;
 }
