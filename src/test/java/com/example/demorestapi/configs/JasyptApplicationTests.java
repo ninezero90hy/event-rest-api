@@ -27,7 +27,7 @@ public class JasyptApplicationTests {
         return encryptor.encrypt(input);
     }
 
-    private String jasyptDecryt(String input){
+    private String jasyptDecrypt(String input){
         String key = "";
         StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
         encryptor.setAlgorithm("PBEWithMD5AndDES");
