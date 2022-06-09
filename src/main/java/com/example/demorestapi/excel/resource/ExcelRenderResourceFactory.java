@@ -20,12 +20,11 @@ import static com.example.demorestapi.common.SuperClassReflectionUtils.getAnnota
 
 /**
  * ExcelRenderResourceFactory
- *
  */
 public final class ExcelRenderResourceFactory {
 
 	public static ExcelRenderResource prepareRenderResource(Class<?> type, Workbook wb,
-															DataFormatDecider dataFormatDecider) {
+			DataFormatDecider dataFormatDecider) {
 		PreCalculatedCellStyleMap styleMap = new PreCalculatedCellStyleMap(dataFormatDecider);
 		Map<String, String> headerNamesMap = new LinkedHashMap<>();
 		List<String> fieldNames = new ArrayList<>();
@@ -39,7 +38,8 @@ public final class ExcelRenderResourceFactory {
 				styleMap.put(
 						String.class,
 						ExcelCellKey.of(field.getName(), ExcelRenderLocation.HEADER),
-						getCellStyle(decideAppliedStyleAnnotation(classDefinedHeaderStyle, annotation.headerStyle())), wb);
+						getCellStyle(decideAppliedStyleAnnotation(classDefinedHeaderStyle, annotation.headerStyle())),
+						wb);
 				Class<?> fieldType = field.getType();
 				styleMap.put(
 						fieldType,
@@ -73,7 +73,7 @@ public final class ExcelRenderResourceFactory {
 	}
 
 	private static ExcelColumnStyle decideAppliedStyleAnnotation(ExcelColumnStyle classAnnotation,
-																 ExcelColumnStyle fieldAnnotation) {
+			ExcelColumnStyle fieldAnnotation) {
 		if (fieldAnnotation.excelCellStyleClass().equals(NoExcelCellStyle.class) && classAnnotation != null) {
 			return classAnnotation;
 		}

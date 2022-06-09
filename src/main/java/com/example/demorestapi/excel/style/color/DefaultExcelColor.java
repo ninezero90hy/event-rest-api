@@ -41,9 +41,11 @@ public class DefaultExcelColor implements ExcelColor {
 	public void applyForeground(CellStyle cellStyle) {
 		try {
 			XSSFCellStyle xssfCellStyle = (XSSFCellStyle) cellStyle;
-			xssfCellStyle.setFillForegroundColor(new XSSFColor(new byte[]{red, green, blue}, new DefaultIndexedColorMap()));
+			xssfCellStyle.setFillForegroundColor(
+					new XSSFColor(new byte[]{red, green, blue}, new DefaultIndexedColorMap()));
 		} catch (Exception e) {
-			throw new UnSupportedExcelTypeException(String.format("Excel Type %s is not supported now", cellStyle.getClass()));
+			throw new UnSupportedExcelTypeException(
+					String.format("Excel Type %s is not supported now", cellStyle.getClass()));
 		}
 		cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 	}

@@ -16,24 +16,24 @@ import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHand
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Override
-    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.resourceId("event");
-    }
+	@Override
+	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+		resources.resourceId("event");
+	}
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http
-            .anonymous()
-                .and()
-            .authorizeRequests()
-                .antMatchers("/swagger-ui.html", "/swagger-resources/**").permitAll()
-                .mvcMatchers(HttpMethod.GET, "/api/**")
-                    .permitAll() // 전부 허용 anoymoous로 해버리면 익명만 사용 가능함
-                .anyRequest()
-                .authenticated()
-                .and()
-            .exceptionHandling()
-                .accessDeniedHandler(new OAuth2AccessDeniedHandler());
-    }
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+		http
+				.anonymous()
+				.and()
+				.authorizeRequests()
+				.antMatchers("/swagger-ui.html", "/swagger-resources/**").permitAll()
+				.mvcMatchers(HttpMethod.GET, "/api/**")
+				.permitAll() // 전부 허용 anoymoous로 해버리면 익명만 사용 가능함
+				.anyRequest()
+				.authenticated()
+				.and()
+				.exceptionHandling()
+				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
+	}
 }

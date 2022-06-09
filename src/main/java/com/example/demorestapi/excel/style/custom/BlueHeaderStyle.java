@@ -8,12 +8,12 @@ import com.example.demorestapi.excel.style.configurer.ExcelCellStyleConfigurer;
 
 public class BlueHeaderStyle extends CustomExcelCellStyle {
 
-    @Override
-    public void configure(ExcelCellStyleConfigurer configurer) {
+	@Override
+	public void configure(ExcelCellStyleConfigurer configurer) {
 
-        configurer.foregroundColor(223, 225, 246)
-                .excelBorders(DefaultExcelBorders.newInstance(ExcelBorderStyle.THIN))
-                .excelAlign(DefaultExcelAlign.CENTER_CENTER)
-                ;
-    }
+		configurer.foregroundColor(223, 225, 246)
+				.excelBorders(DefaultExcelBorders.newInstance(ExcelBorderStyle.THIN))
+				.excelAlign(DefaultExcelAlign.CENTER_CENTER)
+		;
+	}
 }

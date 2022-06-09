@@ -22,7 +22,7 @@ public final class SuperClassReflectionUtils {
 	}
 
 	public static Annotation getAnnotation(Class<?> clazz,
-										   Class<? extends Annotation> targetAnnotation) {
+			Class<? extends Annotation> targetAnnotation) {
 		for (Class<?> clazzInClasses : getAllClassesIncludingSuperClasses(clazz, false)) {
 			if (clazzInClasses.isAnnotationPresent(targetAnnotation)) {
 				return clazzInClasses.getAnnotation(targetAnnotation);
